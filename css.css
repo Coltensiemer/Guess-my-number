@@ -1,0 +1,65 @@
+.display-off { 
+    display: none; ;
+}
+
+header { 
+    display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   text-align: center;
+   margin: 10%;
+   margin-bottom: 0;
+}
+
+
+#header-btns { 
+    display: flex;
+    justify-content: space-evenly; 
+}
+#again-btn { 
+    width: 100px;
+
+}
+
+#next-level { 
+    width: 100px;
+}
+
+
+
+
+main { 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+   
+}
+
+
+.left { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guess { 
+    height: 2em;
+    width: 200px;
+    margin: .5em;
+}
+
+#input-btn { 
+    height: 2em;
+    width: 100%;
+}
+
+
+.right { 
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    justify-content: start;
+}
+
+

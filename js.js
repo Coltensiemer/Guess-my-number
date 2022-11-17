@@ -12,8 +12,13 @@ const nextLevelBtn = document.getElementById('next-level'); // next level btn
 const header = document.querySelector('.header'); // Gues the number 
 const currentScore = document.querySelector(".score-number");/// the score number 
 
+
+
 // randomNumber Engine
 let randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; 
+console.log(randomNumberLvl1) 
+
+
  
 
 //decrease lives engine 
@@ -22,8 +27,13 @@ let highScoreNumber = 0;
 let level = 1; 
 let levelToGuess = 5;
 let scoreValue = 0; 
+let addFive = 5
+let currentValue = 0; 
 
 
+// display message engine 
+const displayMessage = function (message) { 
+    numberMain.innerHTML = message } 
 
 
 
@@ -31,114 +41,98 @@ let scoreValue = 0;
 numberBtn.addEventListener('click', () => {
 
 if (!numberInput.value) { 
-    numberMain.innerHTML = "Needs a number"
+   displayMessage("Guess a number")
 }
 
+// else if ( level = 10 ){ 
+//     displayMessage("YOU WON"); 
+// } 
 
-else if (numberInput.value < randomNumberLvl1) { 
-   
-    if(lives > 1) { 
-        numberMain.innerHTML = "Too Low"
-        // document.body.style.backgroundColor = "red";
-        lives--; 
-        scoreNumber.textContent = lives; 
-    }
-    else {
+// If Guess is Wrong 
+
+else if ( lives > 1) {
+displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
+    lives--; 
+    scoreNumber.textContent = lives; } 
+    else { 
         scoreNumber.textContent = '0'
-        numberMain.innerHTML = "Game-Over"
+        displayMessage("Game-Over")
+        again.style.background = "red"
+        again.style.color = "white"
 
     }
-}
-else if (numberInput.value > randomNumberLvl1) { 
-    if(lives > 1) { 
-        numberMain.innerHTML = "Too high"
-        // document.body.style.backgroundColor = "red";
-        lives--; 
-        scoreNumber.textContent = lives; 
-    }
-    else {
-        scoreNumber.textContent = '0'
-        numberMain.innerHTML = "Game-Over"
 
-    }
-}
-
-else if (numberInput.value == randomNumberLvl1) { 
+if (numberInput.value == randomNumberLvl1) { 
     numberMain.innerHTML = randomNumberLvl1; 
-    document.body.style.backgroundColor = "lightgreen";  
+    document.body.style.backgroundColor = "lightgreen";
+    nextLevelBtn.classList.remove('display-off'); 
+    level++; 
+
+    
 
 
-    if ( lives > highScoreNumber) {
-        highScoreNumber = lives;  
+
+    if ( level > highScoreNumber) {
+        highScoreNumber = level - 1; 
+        currentValue= level - 1;  
+        currentScore.textContent = currentValue; 
         highScore.textContent = highScoreNumber; 
     }
 } 
+
+
+
 }) 
 
 
+nextLevelBtn.addEventListener('keyup', function(e) { 
+    if (e.keycode === 'enter') { 
+        alert('hi')
+    }
+})
+
+
+
 // Want to change header, random button function, and level. 
+
 nextLevelBtn.addEventListener('click', () => { 
 
-    if ( !numberInput.value) {
-        nextLevelBtn.style.color = "red"; 
-  
-    } 
-
-    else if ( live = 0 ) { 
-        nextLevelBtn.style.color = "purple"
-    }
-
-    else { 
-        lives = lives + 2; 
-        level++; 
+    if (numberInput.value == randomNumberLvl1) {
+   addFive = addFive + 5; 
+    lives = lives + 5; 
     levelToGuess = levelToGuess + 5; 
+
     document.querySelector('.level').innerHTML = `Level ${level}`; 
-    header.innerHTML = `Guess the Number (1 to ${levelToGuess})`; 
+    header.innerHTML = `Guess the Number (1 to ${levelToGuess})`;
     document.body.style.backgroundColor = 'white'; 
     numberInput.value = ''; 
-    numberMain.textContent = '?'
+    numberMain.textContent = 'Take a guess'
     scoreNumber.textContent = lives;   
-    
-    if( highScoreNumber > 0 && highScoreNumber < 5) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 10) + 1);  
-    }
-    else if( highScoreNumber > 5 && highScoreNumber < 10) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 15) + 1); 
-    }
-    else if( highScoreNumber > 10 && highScoreNumber < 15) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 20) + 1); 
-    }
-    else if( highScoreNumber > 20 && highScoreNumber < 25) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 25) + 1); 
-    }
-    else if( highScoreNumber > 25 && highScoreNumber < 30) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 15) + 1); 
-    }
-    else if( highScoreNumber > 30 && highScoreNumber < 35) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 20) + 1); 
-    }
-    else if( highScoreNumber > 40 && highScoreNumber < 45) { 
-        randomNumberLvl1 = (Math.trunc(Math.random() * 25) + 1); 
-    }
+    randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1); 
+    console.log(randomNumberLvl1); } 
 
 
-    console.log(randomNumberLvl1); 
-    }
+} 
+)
 
-    
-})
 
 
 // Again rests the page, but not the highscore 
 again.addEventListener('click', () => { 
 lives = 5 
+level = 1
+
 randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; 
+console.log(randomNumberLvl1);
 
 scoreNumber.textContent = lives; 
 document.body.style.backgroundColor= "white";
 numberInput.value = ''; 
-numberMain.textContent = '?'
 currentScore.textContent = scoreValue; 
+numberMain.textContent = '?'
+again.style.background = ""
+again.style.color = "black"
+
 
 
 } 

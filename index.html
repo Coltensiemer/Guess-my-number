@@ -5,29 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js.js" defer> </script> 
+    <link rel="stylesheet" href="css.css">
     <title>Guess my number </title>
 
 </head>
 <body>
     <header> 
         <h1 class="header"> Guess the Number (1 to 5)</h1>
+        <div id="header-btns">
         <button id="again-btn"> Restart</button>
-        <button id="next-level"> Next Level </button>
         <div id="the-number">? </div>
+        <button id="next-level" > Next Level </button>
+    </div>
     </header>
     <main>
         <section class="left"> 
+            <p class="level"> Level 1</p>
             <input type="number" class="guess"> 
             <button id="input-btn"> Check </button>
         </section>
 
         <section class="right">
-            <p class="message">Start guessing...</p>
-            <p class="label-score">💯 Lives Left: <span class="lives">5</span></p>
-            <p class="label-highscore">
-              🥇 Total Score: <span class="highscore">0</span>
+            <p class="label-score">Lives Left: <span class="lives">5</span></p>
+            <p> Current Score: <span class="score-number"> 0</span></p>
+            <p class="label-highscore">High Score: <span class="highscore">0</span>
             </p>
-            <p class="level"> Level 1</p>
         </section>
 
 
