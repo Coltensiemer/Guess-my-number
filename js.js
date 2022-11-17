@@ -10,6 +10,7 @@ const highScore = document.querySelector('.highscore'); // high lives
 const message = document.querySelector('.message'); // message 
 const nextLevelBtn = document.getElementById('next-level'); // next level btn 
 const header = document.querySelector('.header'); // Gues the number 
+const currentScore = document.querySelector(".score-number");/// the score number 
 
 // randomNumber Engine
 let randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; 
@@ -20,6 +21,7 @@ let lives = 5;
 let highScoreNumber = 0; 
 let level = 1; 
 let levelToGuess = 5;
+let scoreValue = 0; 
 
 
 
@@ -64,7 +66,7 @@ else if (numberInput.value > randomNumberLvl1) {
 else if (numberInput.value == randomNumberLvl1) { 
     numberMain.innerHTML = randomNumberLvl1; 
     document.body.style.backgroundColor = "lightgreen";  
-    // highScore.textContent = lives; // Adds highscore 
+
 
     if ( lives > highScoreNumber) {
         highScoreNumber = lives;  
@@ -81,8 +83,13 @@ nextLevelBtn.addEventListener('click', () => {
         nextLevelBtn.style.color = "red"; 
   
     } 
+
+    else if ( live = 0 ) { 
+        nextLevelBtn.style.color = "purple"
+    }
+
     else { 
-        lives = lives + 5; 
+        lives = lives + 2; 
         level++; 
     levelToGuess = levelToGuess + 5; 
     document.querySelector('.level').innerHTML = `Level ${level}`; 
@@ -95,13 +102,22 @@ nextLevelBtn.addEventListener('click', () => {
     if( highScoreNumber > 0 && highScoreNumber < 5) { 
         randomNumberLvl1 = (Math.trunc(Math.random() * 10) + 1);  
     }
-    if( highScoreNumber > 5 && highScoreNumber < 10) { 
+    else if( highScoreNumber > 5 && highScoreNumber < 10) { 
         randomNumberLvl1 = (Math.trunc(Math.random() * 15) + 1); 
     }
-    if( highScoreNumber > 10 && highScoreNumber < 15) { 
+    else if( highScoreNumber > 10 && highScoreNumber < 15) { 
         randomNumberLvl1 = (Math.trunc(Math.random() * 20) + 1); 
     }
-    if( highScoreNumber > 20 && highScoreNumber < 25) { 
+    else if( highScoreNumber > 20 && highScoreNumber < 25) { 
+        randomNumberLvl1 = (Math.trunc(Math.random() * 25) + 1); 
+    }
+    else if( highScoreNumber > 25 && highScoreNumber < 30) { 
+        randomNumberLvl1 = (Math.trunc(Math.random() * 15) + 1); 
+    }
+    else if( highScoreNumber > 30 && highScoreNumber < 35) { 
+        randomNumberLvl1 = (Math.trunc(Math.random() * 20) + 1); 
+    }
+    else if( highScoreNumber > 40 && highScoreNumber < 45) { 
         randomNumberLvl1 = (Math.trunc(Math.random() * 25) + 1); 
     }
 
@@ -122,6 +138,7 @@ scoreNumber.textContent = lives;
 document.body.style.backgroundColor= "white";
 numberInput.value = ''; 
 numberMain.textContent = '?'
+currentScore.textContent = scoreValue; 
 
 
 } 
