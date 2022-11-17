@@ -36,6 +36,9 @@ const displayMessage = function (message) {
     numberMain.innerHTML = message } 
 
 
+//Next Level disable 
+nextLevelBtn.disabled = true; 
+
 
 // IF state for input = randomNumber for level 1 
 numberBtn.addEventListener('click', () => {
@@ -59,6 +62,7 @@ displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low")
         displayMessage("Game-Over")
         again.style.background = "red"
         again.style.color = "white"
+        numberBtn.disabled = true
 
     }
 
@@ -67,6 +71,8 @@ if (numberInput.value == randomNumberLvl1) {
     document.body.style.backgroundColor = "lightgreen";
     nextLevelBtn.classList.remove('display-off'); 
     level++; 
+    numberBtn.disabled = true; 
+    nextLevelBtn.disabled = false; 
 
     
 
@@ -85,9 +91,12 @@ if (numberInput.value == randomNumberLvl1) {
 }) 
 
 
-nextLevelBtn.addEventListener('keyup', function(e) { 
-    if (e.keycode === 'enter') { 
-        alert('hi')
+nextLevelBtn.addEventListener('keydown', (e) => { 
+    if (e.key === 13) { 
+        e.preventDefault()
+
+        console.log(alert('hi'));
+
     }
 })
 
@@ -96,6 +105,9 @@ nextLevelBtn.addEventListener('keyup', function(e) {
 // Want to change header, random button function, and level. 
 
 nextLevelBtn.addEventListener('click', () => { 
+
+    numberBtn.disabled = false; 
+    nextLevelBtn.disabled = true; 
 
     if (numberInput.value == randomNumberLvl1) {
    addFive = addFive + 5; 
@@ -121,18 +133,18 @@ nextLevelBtn.addEventListener('click', () => {
 again.addEventListener('click', () => { 
 lives = 5 
 level = 1
+currentValue = 0
 
-randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; 
-console.log(randomNumberLvl1);
-
-scoreNumber.textContent = lives; 
+//ReSET 
+randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; // reset random 
 document.body.style.backgroundColor= "white";
 numberInput.value = ''; 
-currentScore.textContent = scoreValue; 
 numberMain.textContent = '?'
 again.style.background = ""
 again.style.color = "black"
 
+currentScore.textContent = currentValue; 
+scoreNumber.textContent = lives; 
 
 
 } 
