@@ -41,91 +41,85 @@ nextLevelBtn.disabled = true;
 
 
 // IF state for input = randomNumber for level 1 
-numberBtn.addEventListener('click', () => {
-
-if (!numberInput.value) { 
-   displayMessage("Guess a number")
-}
-
-// else if ( level = 10 ){ 
-//     displayMessage("YOU WON"); 
-// } 
-
-// If Guess is Wrong 
-
-else if ( lives > 1) {
-displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
-    lives--; 
-    scoreNumber.textContent = lives; } 
-    else { 
-        scoreNumber.textContent = '0'
-        displayMessage("Game-Over")
-        again.style.background = "red"
-        again.style.color = "white"
-        numberBtn.disabled = true
-
-    }
-
-if (numberInput.value == randomNumberLvl1) { 
-    numberMain.innerHTML = randomNumberLvl1; 
-    document.body.style.backgroundColor = "lightgreen";
-    nextLevelBtn.classList.remove('display-off'); 
-    level++; 
-    numberBtn.disabled = true; 
-    nextLevelBtn.disabled = false; 
-
-    
+// numberBtn.addEventListener('click', () => {
 
 
 
-    if ( level > highScoreNumber) {
-        highScoreNumber = level - 1; 
-        currentValue= level - 1;  
-        currentScore.textContent = currentValue; 
-        highScore.textContent = highScoreNumber; 
-    }
-} 
 
 
 
-}) 
 
+numberInput.addEventListener('keydown', (e) => { 
+    if (e.key === "Enter") { 
 
-nextLevelBtn.addEventListener('keydown', (e) => { 
-    if (e.key === 13) { 
-        e.preventDefault()
+        if (!numberInput.value) { 
+            displayMessage("Guess a number")
+         }
+         
+         else if ( lives > 1) {
+         displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
+             lives--; 
+             scoreNumber.textContent = lives; } 
+             else { 
+                 scoreNumber.textContent = '0'
+                 displayMessage("Game-Over")
+                 again.style.background = "red"
+                 again.style.color = "white"
+                 numberBtn.disabled = true
+         
+             }
+         
+         if (numberInput.value == randomNumberLvl1) { 
+             numberMain.innerHTML = randomNumberLvl1; 
+             document.body.style.backgroundColor = "lightgreen";
+             nextLevelBtn.classList.remove('display-off'); 
+             level++; 
+             numberBtn.disabled = true; 
+             nextLevelBtn.disabled = false; 
 
-        console.log(alert('hi'));
+             if ( level > highScoreNumber) {
+                 highScoreNumber = level - 1; 
+                 currentValue= level - 1;  
+                 currentScore.textContent = currentValue; 
+                 highScore.textContent = highScoreNumber; 
+             }
+         } 
 
     }
 })
 
 
 
+
 // Want to change header, random button function, and level. 
 
-nextLevelBtn.addEventListener('click', () => { 
+// nextLevelBtn.addEventListener('click', () => { 
 
-    numberBtn.disabled = false; 
-    nextLevelBtn.disabled = true; 
+numberInput.addEventListener('keydown', (e) => { 
+        if (e.code === "Space") { 
 
-    if (numberInput.value == randomNumberLvl1) {
-   addFive = addFive + 5; 
-    lives = lives + 5; 
-    levelToGuess = levelToGuess + 5; 
+numberBtn.disabled = false; 
+nextLevelBtn.disabled = true; 
 
-    document.querySelector('.level').innerHTML = `Level ${level}`; 
-    header.innerHTML = `Guess the Number (1 to ${levelToGuess})`;
-    document.body.style.backgroundColor = 'white'; 
-    numberInput.value = ''; 
-    numberMain.textContent = 'Take a guess'
-    scoreNumber.textContent = lives;   
-    randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1); 
-    console.log(randomNumberLvl1); } 
+if (numberInput.value == randomNumberLvl1) {
+addFive = addFive + 5; 
+lives = lives + 5; 
+levelToGuess = levelToGuess + 3; 
 
+document.querySelector('.level').innerHTML = `Level ${level}`; 
+header.innerHTML = `Guess the Number (1 to ${levelToGuess})`;
+document.body.style.backgroundColor = 'white'; 
+numberInput.value = ''; 
+numberMain.textContent = 'Take a guess'
+scoreNumber.textContent = lives;   
+randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1); 
+console.log(randomNumberLvl1); } 
 
+console.log('next level here we go! ')
+
+}
 } 
-)
+) 
 
 
 
