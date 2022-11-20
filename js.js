@@ -18,7 +18,7 @@ const currentScore = document.querySelector(".score-number");/// the score numbe
 let randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; 
 console.log(randomNumberLvl1) 
 
-
+nextLevelBtn.disabled = true; 
  
 
 //decrease lives engine 
@@ -37,7 +37,7 @@ const displayMessage = function (message) {
 
 
 //Next Level disable 
-nextLevelBtn.disabled = true; 
+
 
 
 // IF state for input = randomNumber for level 1 
@@ -49,8 +49,8 @@ nextLevelBtn.disabled = true;
 
 
 
-numberInput.addEventListener('keydown', (e) => { 
-    if (e.key === "Enter") { 
+numberBtn.addEventListener('click', () => { 
+    // if (e.key === "Enter") { 
 
         if (!numberInput.value) { 
             displayMessage("Guess a number")
@@ -86,7 +86,7 @@ numberInput.addEventListener('keydown', (e) => {
          } 
 
     }
-})
+)
 
 
 
@@ -95,16 +95,15 @@ numberInput.addEventListener('keydown', (e) => {
 
 // nextLevelBtn.addEventListener('click', () => { 
 
-numberInput.addEventListener('keydown', (e) => { 
-        if (e.code === "Space") { 
+nextLevelBtn.addEventListener('click', () => {  
 
 numberBtn.disabled = false; 
 nextLevelBtn.disabled = true; 
 
 if (numberInput.value == randomNumberLvl1) {
-addFive = addFive + 5; 
-lives = lives + 5; 
-levelToGuess = levelToGuess + 3; 
+addFive = addFive + 3; 
+lives = lives + 3; 
+levelToGuess = levelToGuess + 5; 
 
 document.querySelector('.level').innerHTML = `Level ${level}`; 
 header.innerHTML = `Guess the Number (1 to ${levelToGuess})`;
@@ -118,7 +117,6 @@ console.log(randomNumberLvl1); }
 console.log('next level here we go! ')
 
 }
-} 
 ) 
 
 
