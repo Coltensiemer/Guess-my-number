@@ -46,8 +46,10 @@ const displayMessage = function (message) {
 
 
 
+numberBtn.addEventListener("keydown", (e) => 
 
-
+    
+ if ( e.key == 'Enter') { 
 
 numberBtn.addEventListener('click', () => { 
     // if (e.key === "Enter") { 
@@ -86,6 +88,7 @@ numberBtn.addEventListener('click', () => {
          } 
 
     }
+} 
 )
 
 
@@ -93,7 +96,7 @@ numberBtn.addEventListener('click', () => {
 
 // Want to change header, random button function, and level. 
 
-// nextLevelBtn.addEventListener('click', () => { 
+
 
 nextLevelBtn.addEventListener('click', () => {  
 
