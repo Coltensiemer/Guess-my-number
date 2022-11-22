@@ -58,12 +58,42 @@ numberBtn.addEventListener('click', () => {
         if (!numberInput.value) { 
             displayMessage("Guess a number")
          }
+
+        else if (numberInput.value == randomNumberLvl1) { 
+            
+            numberMain.innerHTML = randomNumberLvl1; 
+            document.body.style.backgroundColor = "#D6C302" ;
+            nextLevelBtn.classList.remove('display-off'); 
+            level++;  
+
+            numberBtn.disabled = true; 
+            nextLevelBtn.disabled = false; 
+            numberMain.classList.add('scale'); 
+
+          
+
+            if ( level > highScoreNumber) {
+                highScoreNumber = level - 1; 
+                currentValue= level - 1;  
+                currentScore.textContent = currentValue; 
+                highScore.textContent = highScoreNumber; 
+            }
+        } 
+
          
          
-         else if ( lives > 1) {
+         else if ( lives > 3) {
          displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
              lives--; 
              scoreNumber.textContent = lives; } 
+
+            //  FIX
+             else if (lives >1 && 3 > lives) { 
+                displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
+             lives--; 
+             scoreNumber.textContent = lives; 
+             scoreNumber.classList.add("lives-left"); 
+             }
              else { 
                  scoreNumber.textContent = '0'
                  displayMessage("Game-Over")
@@ -73,28 +103,10 @@ numberBtn.addEventListener('click', () => {
                  nextLevelBtn = true; 
          
              }
+
+        
          
-         if (numberInput.value == randomNumberLvl1) { 
-            
-             numberMain.innerHTML = randomNumberLvl1; 
-             document.body.style.backgroundColor = "#F0D10C";
-             nextLevelBtn.classList.remove('display-off'); 
-             level++;  
-
-             numberBtn.disabled = true; 
-             nextLevelBtn.disabled = false; 
-             numberMain.classList.add('scale'); 
-
-           
-
-             if ( level > highScoreNumber) {
-                 highScoreNumber = level - 1; 
-                 currentValue= level - 1;  
-                 currentScore.textContent = currentValue; 
-                 highScore.textContent = highScoreNumber; 
-             }
-         } 
-
+       
     })
 
 
