@@ -2,13 +2,22 @@
     display: none; ;
 }
 
+body { 
+    background-color: #FF5733 ;
+}
+
 header { 
+
     display: flex;
    flex-direction: column;
    justify-content: space-evenly;
    text-align: center;
    margin: 10%;
    margin-bottom: 0;
+}
+
+.header { 
+    font-family: 'Press Start 2P', cursive;
 }
 
 button:hover { 
@@ -19,16 +28,21 @@ button:hover {
 #header-btns { 
     display: flex;
     justify-content: space-evenly; 
+    font-family: 'Press Start 2P', cursive;
 }
 #again-btn { 
     width: 100px;
     height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px; 
 
 }
 
 #next-level { 
     width: 100px;
     height: 50px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px; 
 }
 
 main { 
@@ -36,6 +50,10 @@ main {
     flex-direction: column; 
     justify-content: center;
     align-items: center;
+    color: white; 
+    -webkit-text-stroke-width: .25px; 
+    -webkit-text-stroke-color: black;
+    font-family: 'Press Start 2P', cursive; 
    
 }
 
@@ -55,6 +73,7 @@ main {
 #input-btn { 
     height: 2em;
     width: 100%;
+    font-family: 'Press Start 2P', cursive;
 }
 
 
@@ -67,4 +86,40 @@ main {
 
 .space { 
     font-size: 8px; ;
+}
+
+.number-container { background-color: white; 
+border: 2px black solid;
+margin: 5px;
+width: 100px;
+height: 50px;
+}
+
+.the-number { 
+    padding: 1em;
+    text-align: center; 
+    font-size: 10px; 
+    
+}
+
+
+.lives-left { 
+
+transform: 5px rotate(360deg);
+
+transition: 1s ;
+
+
+}
+
+
+/* For Correct Number that was guesses to be actived  */
+.scale { 
+    transform: scale(2); 
+    transition-duration: 600ms;
+    color: #FFC300;
+    background-color: white;
+    border: 2px black solid;
+    
+    
 }

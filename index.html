@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js.js" defer> </script> 
     <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>Guess my number </title>
 
 </head>
@@ -14,10 +22,11 @@
         <h1 class="header"> Guess the Number (1 to 5)</h1>
         <div id="header-btns">
         <button id="again-btn"> Restart Game</button>
-        <div id="the-number">? </div>
+        <div class="number-container"> 
+        <div id="the-number" class="the-number">Guess a number </div>
+        </div>
         <div>
         <button id="next-level" > Next Level </button>
-        <p class="space"> (Use the spacebar) </p>
         </div>
     </div>
     </header>
@@ -34,6 +43,7 @@
             <p class="label-highscore">High Score: <span class="highscore">0</span>
             </p>
         </section>
+
 
 
 

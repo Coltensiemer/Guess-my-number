@@ -41,15 +41,16 @@ const displayMessage = function (message) {
 
 
 // IF state for input = randomNumber for level 1 
-// numberBtn.addEventListener('click', () => {
 
 
 
 
-numberBtn.addEventListener("keydown", (e) => 
-
-    
- if ( e.key == 'Enter') { 
+numberInput.addEventListener("keypress", (event) => { 
+ if ( event.key === 'Enter' || 'space') { 
+  numberBtn.click()
+} 
+}
+)
 
 numberBtn.addEventListener('click', () => { 
     // if (e.key === "Enter") { 
@@ -57,6 +58,7 @@ numberBtn.addEventListener('click', () => {
         if (!numberInput.value) { 
             displayMessage("Guess a number")
          }
+         
          
          else if ( lives > 1) {
          displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
@@ -68,16 +70,22 @@ numberBtn.addEventListener('click', () => {
                  again.style.background = "red"
                  again.style.color = "white"
                  numberBtn.disabled = true
+                 nextLevelBtn = true; 
          
              }
          
          if (numberInput.value == randomNumberLvl1) { 
+            
              numberMain.innerHTML = randomNumberLvl1; 
-             document.body.style.backgroundColor = "lightgreen";
+             document.body.style.backgroundColor = "#F0D10C";
              nextLevelBtn.classList.remove('display-off'); 
-             level++; 
+             level++;  
+
              numberBtn.disabled = true; 
              nextLevelBtn.disabled = false; 
+             numberMain.classList.add('scale'); 
+
+           
 
              if ( level > highScoreNumber) {
                  highScoreNumber = level - 1; 
@@ -87,16 +95,13 @@ numberBtn.addEventListener('click', () => {
              }
          } 
 
-    }
-} 
-)
+    })
+
 
 
 
 
 // Want to change header, random button function, and level. 
-
-
 
 nextLevelBtn.addEventListener('click', () => {  
 
@@ -110,14 +115,12 @@ levelToGuess = levelToGuess + 5;
 
 document.querySelector('.level').innerHTML = `Level ${level}`; 
 header.innerHTML = `Guess the Number (1 to ${levelToGuess})`;
-document.body.style.backgroundColor = 'white'; 
+document.body.style.backgroundColor = '#FF5733'; 
 numberInput.value = ''; 
 numberMain.textContent = 'Take a guess'
 scoreNumber.textContent = lives;   
 randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1); 
-console.log(randomNumberLvl1); } 
-
-console.log('next level here we go! ')
+numberMain.classList.remove("scale");  } 
 
 }
 ) 
@@ -130,11 +133,14 @@ lives = 5
 level = 1
 currentValue = 0
 
+numberBtn.disabled=false; 
+nextLevelBtn.disabled=true; 
+
 //ReSET 
 randomNumberLvl1 = Math.trunc(Math.random() * 5) + 1; // reset random 
-document.body.style.backgroundColor= "white";
+document.body.style.backgroundColor= "#FF5733";
 numberInput.value = ''; 
-numberMain.textContent = '?'
+numberMain.textContent = 'Guess a number'
 again.style.background = ""
 again.style.color = "black"
 
