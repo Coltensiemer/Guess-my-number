@@ -88,7 +88,7 @@ numberBtn.addEventListener('click', () => {
              scoreNumber.textContent = lives; } 
 
             //  FIX
-             else if (lives >1 && 3 > lives) { 
+             else if (lives >1 && lives <=3) { 
                 displayMessage(numberInput.value > randomNumberLvl1 ? "Too high": "Too Low") 
              lives--; 
              scoreNumber.textContent = lives; 
