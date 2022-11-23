@@ -51,7 +51,7 @@ main {
     justify-content: center;
     align-items: center;
     color: white; 
-    -webkit-text-stroke-width: .25px; 
+    -webkit-text-stroke-width: .75px; 
     -webkit-text-stroke-color: black;
     font-family: 'Press Start 2P', cursive; 
    
@@ -99,16 +99,22 @@ height: 50px;
     padding: 1em;
     text-align: center; 
     font-size: 10px; 
+   
     
+}
+
+.addThree { 
+    position: absolute;
+    font-size: 12px;
+    opacity: 0;
+}
+.addThreeAd { 
+    animation: fadeinout 2s;   
 }
 
 
 .lives-left { 
-
-transform: 5px rotate(360deg);
-
-transition: 1s ;
-
+    animation: lives 1s infinite; 
 
 }
 
@@ -123,3 +129,33 @@ transition: 1s ;
     
     
 }
+
+
+@keyframes lives {
+    0% { 
+        transform: scale(1);
+    }
+    50%{ 
+        transform: scale(); 
+        color: yellow; 
+
+    }
+    100% { 
+        transform: scale(1);
+    }
+}
+
+
+
+@keyframes fadeinout { 
+  100%{ 
+    opacity: 0;
+  }
+    50% { 
+        opacity: 1;
+    }
+    0%{ 
+        opacity: 0;
+    }
+}
+
