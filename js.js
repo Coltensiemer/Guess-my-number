@@ -36,24 +36,20 @@ const displayMessage = function (message) {
     numberMain.innerHTML = message } 
 
 
-//Next Level disable 
+
+
 
 
 
 // IF state for input = randomNumber for level 1 
-
-
-
-
 numberInput.addEventListener("keypress", (event) => { 
- if ( event.key === 'Enter' || 'space') { 
+ if ( event.key === 'Enter') { 
   numberBtn.click()
 } 
 }
 )
 
 numberBtn.addEventListener('click', () => { 
-    // if (e.key === "Enter") { 
 
         if (!numberInput.value) { 
             displayMessage("Guess a number")
@@ -69,6 +65,8 @@ numberBtn.addEventListener('click', () => {
             numberBtn.disabled = true; 
             nextLevelBtn.disabled = false; 
             numberMain.classList.add('scale'); 
+            document.querySelector('.addThree').classList.add("addThreeAd");
+            console.log(randomNumberLvl1)
 
           
 
@@ -127,8 +125,7 @@ numberMain.textContent = 'Take a guess'
 randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1); 
 numberMain.classList.remove("scale");  
 
-livesLeft.textContent = lives;  
-document.querySelector('.addThree').classList.add("addThreeAd"); 
+livesLeft.textContent = lives;   
 } 
 
 
