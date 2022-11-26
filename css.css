@@ -43,6 +43,7 @@ button:hover {
     height: 50px;
     font-family: 'Press Start 2P', cursive;
     font-size: 10px; 
+    
 }
 
 main { 
@@ -51,10 +52,16 @@ main {
     justify-content: center;
     align-items: center;
     color: white; 
-    -webkit-text-stroke-width: .75px; 
+    -webkit-text-stroke-width: .1px; 
     -webkit-text-stroke-color: black;
     font-family: 'Press Start 2P', cursive; 
    
+}
+
+.level { 
+    border: 2px black solid; 
+    padding: 1em;
+    background: #FFC300;
 }
 
 
@@ -105,8 +112,9 @@ height: 50px;
 
 .addThree { 
     position: absolute;
-    font-size: 12px;
+    font-size: 14px;
     opacity: 0;
+    color: #FF5733;
 }
 .addThreeAd { 
     animation: fadeinout 2s;   
@@ -159,3 +167,46 @@ height: 50px;
     }
 }
 
+
+
+/*Dialog-----------------------*/ 
+
+#openModal { 
+    position:absolute; 
+    top: 20px;
+    background-color: #FFC300;
+    font-family:'Press Start 2P', cursive; 
+}
+
+.modal{ 
+    gap: 3em;
+    inset: 0;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    backdrop-filter: blur(5px); 
+    text-align: center;
+    background: white; 
+
+    
+    
+}
+
+.modal::backdrop { 
+    opacity: 0;
+    background: rgb(000/0.5); 
+}
+
+
+
+dialog>ul>li { 
+    list-style: none;
+    padding: .5em;
+}
+
+dialog>button{ 
+    
+    font-family: 'Press Start 2P', cursive;
+    background-color: #FFC300;
+    border-radius: 2%;
+    height: 4em;
+ }
