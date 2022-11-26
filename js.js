@@ -126,6 +126,7 @@ randomNumberLvl1 = (Math.trunc(Math.random() * addFive) + 1);
 numberMain.classList.remove("scale");  
 
 livesLeft.textContent = lives;   
+document.querySelector('.addThree').classList.remove("addThreeAd");
 } 
 
 
@@ -163,3 +164,28 @@ livesLeft.textContent = lives;
 if(lives >1 && lives < 3){ 
      livesLeft.classList.add("lives-left"); 
      }
+
+
+// dialog box
+
+const closeDialog = document.getElementById('dialog-start'); 
+const openModal = document.getElementById('openModal'); 
+const modal = document.querySelector('.modal'); 
+
+
+openModal.addEventListener('click', () => { 
+    modal.showModal(); 
+})
+
+closeDialog.addEventListener('keydown', (e)=> {
+    if(e.key ==='Escape'){ 
+        modal.close(); 
+    }
+})
+
+closeDialog.addEventListener('click', ()=> { 
+    modal.close()
+})
+
+o
+
