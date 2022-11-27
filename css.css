@@ -1,9 +1,55 @@
+
+    
+
+
+
+@media (min-width: 751px){ 
+body { 
+    font-size: 20px !important;
+}
+
+.left { 
+padding-top: 1em;    
+}
+
+.scale { 
+    transform: scale(1.5) !important;  
+    transition-duration: 600ms;
+    color: #FFC300;
+    background-color: white;
+    border: 2px black solid;
+   
+    
+}
+
+}
+
+
+
+@media  (min-width:400px) and (max-width:750px) { 
+ 
+
+
+ .scale { 
+    transform: scale(1.2) !important;  
+    transition-duration: 600ms;
+    color: #FFC300;
+    background-color: white;
+    border: 2px black solid;
+   
+    
+}
+
+}
+
+
 .display-off { 
     display: none; ;
 }
 
 body { 
     background-color: #FF5733 ;
+    font-size: 10px;
 }
 
 header { 
@@ -14,6 +60,7 @@ header {
    text-align: center;
    margin: 10%;
    margin-bottom: 0;
+
 }
 
 .header { 
@@ -129,11 +176,11 @@ height: 50px;
 
 /* For Correct Number that was guesses to be actived  */
 .scale { 
-    transform: scale(2); 
     transition-duration: 600ms;
     color: #FFC300;
+    font-size: 16px;
     background-color: white;
-    border: 2px black solid;
+ 
     
     
 }
@@ -149,7 +196,7 @@ height: 50px;
 
     }
     100% { 
-        transform: scale(1);
+        transform: scale();
     }
 }
 
